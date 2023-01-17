@@ -147,11 +147,16 @@
                         "type": "string"
                     },
                     {
-                        "type": "Array[string]",
                         "name": "tags[]",
                         "in": "query",
                         "description": "Tags associated with the file",
-                        "required": false
+                        "required": false,
+                        "schema":{
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
                     },
                     {
                         "name": "description",
