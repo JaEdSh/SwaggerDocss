@@ -20,6 +20,13 @@
                 "operationId": "delete",
                 "parameters": [
                     {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The API key of the drive",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "name": "path",
                         "in": "query",
                         "description": "The full path to the file (e.g. /myDirectory/myFile.txt)",
@@ -124,6 +131,13 @@
                 "description": "Uploads a file to your endpoint cloud service. If the destination path includes directories that do not exist, they will be created.",
                 "operationId": "post",
                 "parameters": [
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The API key of the drive",
+                        "required": true,
+                        "type": "string"
+                    },
                     {
                         "name": "path",
                         "in": "query",
