@@ -168,13 +168,6 @@
                         "type": "boolean"
                     },
                     {
-                        "name": "calculateFolderPath",
-                        "in": "query",
-                        "description": "Whether or not to construct the path for each item in the response. Defaults to true, when set to false folderId is required",
-                        "required": false,
-                        "type": "boolean"
-                    },
-                    {
                         "name": "thumbnail",
                         "in": "formData",
                         "description": "The thumbnail for the file to be set",
