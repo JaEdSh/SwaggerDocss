@@ -116,6 +116,114 @@
                         "description": "Provider server error - Something went wrong on the Provider or Endpoint's server"
                     }
                 }
+            },
+            "post": {
+                "tags": [
+                    "Files"
+                ],
+                "description": "Uploads a file to your endpoint cloud service. If the destination path includes directories that do not exist, they will be created.",
+                "operationId": "post",
+                "parameters": [
+                    {
+                        "name": "path",
+                        "in": "query",
+                        "description": "The full path to the file (e.g. /myDirectory/myFile.txt)",
+                        "required": false,
+                        "type": "string",
+                        "x-example": "/myDirectory/myFile.txt"
+                    },
+                    {
+                        "name": "convert",
+                        "in": "query",
+                        "description": "Converts uploaded file to the corresponding Google Docs format",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "folderId",
+                        "in": "query",
+                        "description": "The folder id is where the file should be uploaded to, this is required when calculateFolderPath is set to false. If calculateFolderPath is set to true and folderId is provided, then the folderId will be ignored. folderId is of higher priority, so if the path parameter is also provided, then it will be ignored.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "description",
+                        "in": "query",
+                        "description": "description of the file",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "overwrite",
+                        "in": "query",
+                        "description": "Overwrite the file if the file exists",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "calculateFolderPath",
+                        "in": "query",
+                        "description": "Whether or not to construct the path for each item in the response. Defaults to true, when set to false folderId is required",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "calculateFolderPath",
+                        "in": "query",
+                        "description": "Whether or not to construct the path for each item in the response. Defaults to true, when set to false folderId is required",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "thumbnail",
+                        "in": "formData",
+                        "description": "The thumbnail for the file to be set",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "file",
+                        "in": "formData",
+                        "description": "The file to be uploaded",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK - Everything worked as expected"
+                    },
+                    "400": {
+                        "description": "Bad Request - Often due to a missing request parameter"
+                    },
+                    "401": {
+                        "description": "Unauthorized - An invalid element token, user secret and/or org secret provided"
+                    },
+                    "403": {
+                        "description": "Forbidden - Access to the resource by the provider is forbidden"
+                    },
+                    "404": {
+                        "description": "Not found - The requested resource is not found"
+                    },
+                    "405": {
+                        "description": "Method not allowed - Incorrect HTTP verb used, e.g., GET used when POST expected"
+                    },
+                    "406": {
+                        "description": "Not acceptable - The response content type does not match the 'Accept' header value"
+                    },
+                    "409": {
+                        "description": "Conflict - If a resource being created already exists"
+                    },
+                    "415": {
+                        "description": "Unsupported media type - The server cannot handle the requested Content-Type"
+                    },
+                    "500": {
+                        "description": "Server error - Something went wrong on the Cloud Elements server"
+                    },
+                    "502": {
+                        "description": "Provider server error - Something went wrong on the Provider or Endpoint's server"
+                    }
+                }
             }
         }
     },
