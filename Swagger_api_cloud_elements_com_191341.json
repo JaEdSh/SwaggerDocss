@@ -154,7 +154,8 @@
                         "schema":{
                             "type": "array",
                             "items": {
-                                "type": "string"
+                                "type": "string",
+                                "example": ["str1", "str2", "str3"]
                             }
                         }
                     },
