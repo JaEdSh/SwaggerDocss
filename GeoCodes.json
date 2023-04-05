@@ -1,0 +1,63 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Google",
+        "description": "API for Google GeoCoding",
+        "version": "0.0.0"
+    },
+    "host": "www.googleapis.com",
+    "basePath": "/maps/api/geocode/",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/json": {
+            "post": {
+                "tags": [
+                    "GeoCode"
+                ],
+                "description": "Convert address to a geocode",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "API key",
+                        "required": true,
+                        "type": "string"                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "description": "the address to code",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "111 main street, new york, ny"
+                    },
+                    {
+                        "name": "components",
+                        "in": "query",
+                        "description": "components used for further filtering delimited by |.  Do not repeat items already submitted in address!",
+                        "required":false,
+                        "type":"string",
+                        "x-example": "country:USA"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "results": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
