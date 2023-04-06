@@ -66,7 +66,7 @@
         "CodeResponse": {
             "description": "Model for GeoCodeRespons",
             "properties": {
-                "result": {
+                "results": {
                     "type": "string"
                 }
             }
