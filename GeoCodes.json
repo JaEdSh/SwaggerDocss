@@ -5,7 +5,7 @@
         "description": "API for Google GeoCoding",
         "version": "0.0.0"
     },
-    "host": "www.googleapis.com",
+    "host": "maps.googleapis.com",
     "basePath": "/maps/api/geocode/",
     "schemes": [
         "https"
