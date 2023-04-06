@@ -67,10 +67,10 @@
             "description": "Model for GeoCodeRespons",
             "properties": {
                 "results": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
+                    "type": "array",
+                    "items": [{
+                        "type": "string"
+                    }]
                 }
             }
         }
