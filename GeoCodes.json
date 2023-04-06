@@ -69,7 +69,6 @@
                 "results": {
                     "type": "string"
                 },
-                ,
                 "status": {
                     "type": "string"
                 }
