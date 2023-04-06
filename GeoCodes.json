@@ -66,12 +66,12 @@
         "CodeResponse": {
             "description": "Model for GeoCodeRespons",
             "properties": {
-                "results": {
+                "results": [{
                     "type": "array",
                     "items": {
                         "type":"string"
                     }
-                },
+                }],
                 "status": {
                     "type": "string"
                 }
