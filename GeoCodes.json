@@ -69,13 +69,129 @@
                 "results": [{
                     "type": "array",
                     "items": {
-                        "type":"string"
+                        "properties":{
+                            "address_components": [{
+                                "type": "array",
+                                "$ref": "#/definitions/AddressComponents"
+                            }],
+                            "formatted_address": {
+                                "type": "string"
+                            },
+                            "geometry":{
+                                "type": "object",
+                                "properties": {
+                                    "bounds": {
+                                        "type": "object",
+                                        "properties":{
+                                            "northeast": {
+                                                "type": "object",
+                                                "properties":{
+                                                    "lat":{
+                                                        "type": "number"
+                                                    },
+                                                    "lng": {
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            },
+                                            "southwest": {
+                                                "type": "object",
+                                                "properties":{
+                                                    "lat":{
+                                                        "type": "number"
+                                                    },
+                                                    "lng": {
+                                                        "type": "number"
+                                                    }
+                                                } 
+                                            }
+                                        }
+                                    },
+                                    "location": {
+                                        "type": "object",
+                                        "properties": {
+                                            "lat":{
+                                                "type": "number"
+                                            },
+                                            "lng": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    },
+                                    "location_type": {
+                                        "type": "string"
+                                    },
+                                    "viewport":{
+                                        "type": "object",
+                                        "properties": {
+                                            "northeast": {
+                                                "type": "object",
+                                                "properties":{
+                                                    "lat":{
+                                                        "type": "number"
+                                                    },
+                                                    "lng": {
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            },
+                                            "southwest": {
+                                                "type": "object",
+                                                "properties":{
+                                                    "lat":{
+                                                        "type": "number"
+                                                    },
+                                                    "lng": {
+                                                        "type": "number"
+                                                    }
+                                                } 
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "place_id": {
+                                "type": "string"
+                            },
+                            "postcode_localities": [{
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }],
+                            "types": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
                     }
                 }],
                 "status": {
                     "type": "string"
                 }
+
             }
+        },
+        "AddressComponents":{
+            "description": "Model for the Adress Components",
+            "type": "object",
+            "properties":{
+                "long_name":{
+                    "type": "string"
+                },
+                "short_name": {
+                    "type": "string"
+                },
+                "types": [{
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }]
+            }
+
         }
         
     },
