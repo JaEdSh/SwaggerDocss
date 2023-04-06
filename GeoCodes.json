@@ -26,7 +26,8 @@
                         "in": "query",
                         "description": "API key",
                         "required": true,
-                        "type": "string"                    },
+                        "type": "string"
+                    },
                     {
                         "name": "address",
                         "in": "query",
@@ -39,8 +40,8 @@
                         "name": "components",
                         "in": "query",
                         "description": "components used for further filtering delimited by |.  Do not repeat items already submitted in address!",
-                        "required":false,
-                        "type":"string",
+                        "required": false,
+                        "type": "string",
                         "x-example": "country:USA"
                     }
                 ],
@@ -48,16 +49,30 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "object",
-                            "properties": {
-                                "results": {
-                                    "type": "string"
-                                }
+                            "$ref": "#/definitions/CodeResponse"
+                        },
+                        "examples":{
+                            "application/json":{
+
                             }
                         }
                     }
                 }
+            },
+            "security": []
+        }
+    },
+    "definitions": {
+        "CodeResponse": {
+            "description": "Model for GeoCodeRespons",
+            "properties": {
+                "result": {
+                    "type": "string"
+                }
             }
         }
-    }
+        
+    },
+    "securityDefinitions": {},
+    "security": []
 }
