@@ -67,6 +67,12 @@
             "description": "Model for GeoCodeRespons",
             "properties": {
                 "results": {
+                    "type": "array",
+                    "items": {
+                        "type":"string"
+                    }
+                },
+                "status": {
                     "type": "string"
                 }
             }
