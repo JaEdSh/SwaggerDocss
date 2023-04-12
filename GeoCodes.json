@@ -68,7 +68,8 @@
             "properties": {
                 "results": {
                     "type": "array",
-                    "$ref": "#/definitions/Results",      
+                    "$ref": "#/definitions/Results"
+                },    
                 "status": {
                     "type": "string"
                 }
@@ -79,31 +80,30 @@
             "type": "object",
             "description": "The values returned",
             "properties":{
-                    "address_components": [{
-                        "type": "array",
-                        "$ref": "#/definitions/AddressComponents"
-                    }],
-                    "formatted_address": {
+                "address_components": [{
+                    "type": "array",
+                    "$ref": "#/definitions/AddressComponents"
+                }],
+                "formatted_address": {
+                    "type": "string"
+                },
+                "geometry":{
+                    "type": "object",
+                    "$ref": "#/definitions/Geometry"                        
+                },
+                "place_id": {
+                    "type": "string"
+                },
+                "postcode_localities": [{
+                    "type": "array",
+                    "items": {
                         "type": "string"
-                    },
-                    "geometry":{
-                        "type": "object",
-                        "$ref": "#/definitions/Geometry"                        
-                    },
-                    "place_id": {
+                    }
+                }],
+                "types": {
+                    "type": "array",
+                    "items": {
                         "type": "string"
-                    },
-                    "postcode_localities": [{
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    }],
-                    "types": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
                     }
                 }
             }
