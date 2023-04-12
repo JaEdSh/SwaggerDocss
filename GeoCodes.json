@@ -64,11 +64,12 @@
     },
     "definitions": {
         "CodeResponse": {
+            "type": "object",
             "description": "Model for GeoCodeResponse",
             "properties": {
                 "results": {
                     "type": "array",
-                    "$ref": "#/definitions/Results"
+                    "$ref": "#/definitions/ReturnResults"
                 },    
                 "status": {
                     "type": "string"
@@ -76,14 +77,14 @@
 
             }
         },
-        "Results":{
+        "ReturnResults":{
             "type": "object",
             "description": "The values returned",
             "properties":{
-                "address_components": [{
+                "address_components": {
                     "type": "array",
                     "$ref": "#/definitions/AddressComponents"
-                }],
+                },
                 "formatted_address": {
                     "type": "string"
                 },
@@ -94,12 +95,12 @@
                 "place_id": {
                     "type": "string"
                 },
-                "postcode_localities": [{
+                "postcode_localities": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     }
-                }],
+                },
                 "types": {
                     "type": "array",
                     "items": {
@@ -118,12 +119,12 @@
                 "short_name": {
                     "type": "string"
                 },
-                "types": [{
+                "types": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     }
-                }]
+                }
             }
 
         },
