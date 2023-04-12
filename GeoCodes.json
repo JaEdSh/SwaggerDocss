@@ -49,7 +49,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/CodeResponse"
+                            "$ref": "#/definitions/rootObject"
                         },
                         "examples":{
                             "application/json":{
@@ -63,13 +63,15 @@
         }
     },
     "definitions": {
-        "CodeResponse": {
+        "rootObject": {
             "type": "object",
             "description": "Model for GeoCodeResponse",
             "properties": {
                 "results": {
                     "type": "array",
-                    "$ref": "#/definitions/ReturnResults"
+                    "items": {
+                        "$ref": "#/definitions/ReturnResults"
+                    }
                 },    
                 "status": {
                     "type": "string"
@@ -83,7 +85,9 @@
             "properties":{
                 "address_components": {
                     "type": "array",
-                    "$ref": "#/definitions/AddressComponents"
+                    "items": {
+                        "$ref": "#/definitions/AddressComponents"
+                    }
                 },
                 "formatted_address": {
                     "type": "string"
