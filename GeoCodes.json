@@ -64,114 +64,48 @@
     },
     "definitions": {
         "CodeResponse": {
-            "description": "Model for GeoCodeRespons",
+            "description": "Model for GeoCodeResponse",
             "properties": {
-                "results": [{
+                "results": {
                     "type": "array",
-                    "items": {
-                        "properties":{
-                            "address_components": [{
-                                "type": "array",
-                                "$ref": "#/definitions/AddressComponents"
-                            }],
-                            "formatted_address": {
-                                "type": "string"
-                            },
-                            "geometry":{
-                                "type": "object",
-                                "properties": {
-                                    "bounds": {
-                                        "type": "object",
-                                        "properties":{
-                                            "northeast": {
-                                                "type": "object",
-                                                "properties":{
-                                                    "lat":{
-                                                        "type": "number"
-                                                    },
-                                                    "lng": {
-                                                        "type": "number"
-                                                    }
-                                                }
-                                            },
-                                            "southwest": {
-                                                "type": "object",
-                                                "properties":{
-                                                    "lat":{
-                                                        "type": "number"
-                                                    },
-                                                    "lng": {
-                                                        "type": "number"
-                                                    }
-                                                } 
-                                            }
-                                        }
-                                    },
-                                    "location": {
-                                        "type": "object",
-                                        "properties": {
-                                            "lat":{
-                                                "type": "number"
-                                            },
-                                            "lng": {
-                                                "type": "number"
-                                            }
-                                        }
-                                    },
-                                    "location_type": {
-                                        "type": "string"
-                                    },
-                                    "viewport":{
-                                        "type": "object",
-                                        "properties": {
-                                            "northeast": {
-                                                "type": "object",
-                                                "properties":{
-                                                    "lat":{
-                                                        "type": "number"
-                                                    },
-                                                    "lng": {
-                                                        "type": "number"
-                                                    }
-                                                }
-                                            },
-                                            "southwest": {
-                                                "type": "object",
-                                                "properties":{
-                                                    "lat":{
-                                                        "type": "number"
-                                                    },
-                                                    "lng": {
-                                                        "type": "number"
-                                                    }
-                                                } 
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "place_id": {
-                                "type": "string"
-                            },
-                            "postcode_localities": [{
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            }],
-                            "types": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                }],
+                    "$ref": "#/definitions/Results",      
                 "status": {
                     "type": "string"
                 }
 
+            }
+        },
+        "Results":{
+            "type": "object",
+            "description": "The values returned",
+            "properties":{
+                    "address_components": [{
+                        "type": "array",
+                        "$ref": "#/definitions/AddressComponents"
+                    }],
+                    "formatted_address": {
+                        "type": "string"
+                    },
+                    "geometry":{
+                        "type": "object",
+                        "$ref": "#/definitions/Geometry"                        
+                    },
+                    "place_id": {
+                        "type": "string"
+                    },
+                    "postcode_localities": [{
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }],
+                    "types": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         },
         "AddressComponents":{
@@ -192,8 +126,64 @@
                 }]
             }
 
+        },
+        "Geometry": {
+            "type": "object",
+            "properties": {
+                "bounds": {
+                    "type": "object",
+                    "$ref": "#/definitions/Bounds"
+                },
+                "location": {
+                    "type": "object",
+                    "$ref": "#/definitions/Northeast"                    
+                },
+                "location_type": {
+                    "type": "string"
+                },
+                "viewport":{
+                    "type": "object",
+                    "$ref": "#/definitions/Viewport"
+                }
+            }
+        },
+        "Bounds": {
+            "type:": "object",
+            "properties":{
+                "northeast": {
+                    "type": "object",
+                    "$ref": "#/definitions/Northeast"
+                },
+                "southwest": {
+                    "type": "object",
+                    "$ref": "#/definitions/Northeast"
+                }
+            }
+        },
+        "Viewport": {
+            "type": "object",
+            "properties": {
+                "northeast": {
+                    "type": "object",
+                    "$ref": "#/definitions/Northeast"
+                },
+                "southwest": {
+                    "type": "object",
+                    "$ref": "#/definitions/Northeast"
+                }
+            }
+        },
+        "Northeast":{
+            "type": "object",
+            "properties":{
+                "lat":{
+                    "type": "number"
+                },
+                "lng": {
+                    "type": "number"
+                }
+            }
         }
-        
     },
     "securityDefinitions": {},
     "security": []
