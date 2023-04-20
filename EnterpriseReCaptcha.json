@@ -139,13 +139,15 @@
         },
         "RiskAnalysis": {
             "type": "object",
-            "score": {
-                "type": "number"
-            },
-            "reasons": {
-                "type": "array",
-                "items": {
-                    "type": "string"
+            "properties": {
+                "score": {
+                    "type": "number"
+                },
+                "reasons": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         }
