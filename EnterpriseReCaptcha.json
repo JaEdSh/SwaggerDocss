@@ -1,0 +1,161 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Google reCaptcha Enterprise",
+        "description": "API for Enterprise reCaptcha",
+        "version": "0.0.0"
+    },
+    "host": "recaptchaenterprise.googleapis.com",
+    "basePath": "/v1",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/projects/{project_id}/assessments": {
+            "post": {
+                "tags": [
+                    "Siteverify"
+                ],
+                "description": "Verify",
+                "operationId": "Verify",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "in": "path",
+                        "description": "Google id of the project",
+                        "required": true,
+                        "type": "string",
+                        "x-example": "project-0001"
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "API Key",
+                        "required": true,
+                        "type": "string",
+                        "x-example": ""
+                    },
+                    {
+                        "name": "inputData",
+                        "in": "body",
+                        "description": "the data to be consumed by the API",
+                        "schema": {
+                            "$ref": "#/definitions/SiteData"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Verification"
+                        },
+                        "examples": {
+                            "tokenProperties": {
+                                "valid": true,
+                                "hostname": "www.google.com",
+                                "action": "homepage",
+                                "createTime": "2019-03-28T12:24:17.894Z"
+                            },
+                            "riskAnalysis": {
+                                "score": 0.1,
+                                "reasons": [
+                                    "AUTOMATION"
+                                ]
+                            },
+                            "event": {
+                                "token": "TOKEN",
+                                "siteKey": "KEY",
+                                "expectedAction": "USER_ACTION"
+                            },
+                            "name": "projects/PROJECT_ID/assessments/b6ac310000000000"
+                        }
+                    }
+                },
+                "security": []
+            }
+        }
+    },
+    "definitions": {
+        "SiteData": {
+            "type": "object",
+            "properties": {
+                "event": {
+                    "$ref": "#/definitions/Event"
+                }
+            }
+        },
+        "Event": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                },
+                "siteKey": {
+                    "type": "string"
+                },
+                "expectedAction": {
+                    "type": "string"
+                }
+            }
+        },
+        "Verification": {
+            "description": "Model for Verification",
+            "properties": {
+                "tokenProperties": {
+                    "$ref": "#/definitions/TokenProperties"
+                },
+                "riskAnalysis": {
+                    "$ref": "#/definitions/RiskAnalysis"
+                },
+                "event": {
+                    "$ref": "#/definitions/Event"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "TokenProperties": {
+            "type": "object",
+            "properties": {
+                "valid": {
+                    "type": "boolean"
+                },
+                "hostname": {
+                    "type": "string"
+                },
+                "action": {
+                    "type": "string"
+                },
+                "createTime": {
+                    "type": "string",
+                    "format": "datetime"
+                }
+            }
+        },
+        "RiskAnalysis": {
+            "type": "object",
+            "score": {
+                "type": "number"
+            },
+            "reasons": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {},
+    "security": [],
+    "tags": [
+        {
+            "name": "Siteverify",
+            "description": "Operations about Siteverify"
+        }
+    ]
+}
