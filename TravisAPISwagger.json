@@ -1,0 +1,421 @@
+{
+    "swagger":"2.0",
+    "info": {
+            "version": "1.0.0",
+            "title": "TravisAPIForNintexK2",
+            "description": "3 methods to return Operator Inforation from the Travis API"
+    },
+    "host": "api-test.lacity.org",
+    "basePath": "/lawa/TravisOnBoard/GetTravisData",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/Companies/{CompanyName}": {
+            "get": {
+                "summary": "Get Operator Info From Company Name",
+                "description": "Get Operator Info From Company Name",
+                "operationId": "getOperatorInfoFromCompanyName",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "apikey",
+                        "type": "string",
+                        "in": "query",
+                        "required": true,
+                        "description": "API Key"
+                    },
+                    {
+                        "name": "CompanyName",
+                        "type": "string",
+                        "in": "path",
+                        "required":true,
+                        "description": "The Company Name to search for"
+                    }
+                ],
+                "responses":{
+                    "200": {
+                        "description":"OK",
+                        "schema": {
+                            "type":"array",
+                            "items": {
+                                "$ref":"#/definitions/rootObject"
+                            }   
+                        },
+                        "examples":{
+                            "application/json":{
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        
+        "/PermitDates/{startDate}/{endDate}": {
+            "get": {
+                "summary": "Get Operator Info From Permit Dates",
+                "description": "Get Operator Info From Permit Dates",
+                "operationId": "getOperatorInfoFromPermitDates",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "apikey",
+                        "type": "string",
+                        "in": "query",
+                        "required": true,
+                        "description": "API Key"
+                    },
+                    {
+                        "name": "startDate",
+                        "type": "string",
+                        "in": "path",
+                        "required":true,
+                        "description": "The Start Date to use"
+                    },
+                    {
+                        "name": "endDate",
+                        "type": "string",
+                        "in": "path",
+                        "required":true,
+                        "description": "The End Date to use"
+                    }
+                ],
+                "responses":{
+                    "200": {
+                        "description":"OK",
+                        "schema": {
+                            "type":"array",
+                            "items": {
+                                "$ref":"#/definitions/rootObject"
+                            }   
+                        },
+                        "examples":{
+                            "application/json":{
+
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Ian/{LS0Number}": {
+            "get": {
+                "summary": "Get Operator Info From LSO Number",
+                "description": "Get Operator Info From LSO Number",
+                "operationId": "getOperatorInfoFromLSONumber",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "apikey",
+                        "type": "string",
+                        "in": "query",
+                        "required": true,
+                        "description": "API Key"
+                    },
+                    {
+                        "name": "LSONumber",
+                        "type": "string",
+                        "in": "path",
+                        "required":true,
+                        "description": "The LSO Number to search for"
+                    }
+                ],
+                "responses":{
+                    "200": {
+                        "description":"OK",
+                        "schema": {
+                            "type":"array",
+                            "items": {
+                                "$ref":"#/definitions/rootObject"
+                            }   
+                        },
+                        "examples":{
+                            "application/json":{
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "rootObject": {
+            "type": "object",
+            "description": "Model for Operator data",
+            "properties": {
+                "TravisData": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TravisData"
+                        }
+                },
+                "Disclaimer": {
+                    "type": "string"
+                },
+                "RequestDateTime": {
+                    "type":"string"
+                },
+                "ErrorCode": {
+                    "type": "string"
+                },
+                "ErrorMessage": {
+                    "type":"string"
+                },
+                "RequestRecords": {
+                    "type": "string"
+                }
+                }
+
+        },
+        "Vehicles": {
+            "type":"object",
+            "description": "Model for Vehicles Data",
+            "properties": {
+                "AccountId": {
+                    "type":"number"
+                },
+                "VehicleId": {
+                    "type": "number"
+                },
+                "FleetNumber": {
+                    "type": "string"
+                },
+                "Year": {
+                    "type": "number"
+                },
+                "Make": {
+                    "type": "string"
+                },
+                "Model": {
+                    "type": "string"
+                },
+                "Color": {
+                    "type": "string"
+                },
+                "VIN": {
+                    "type": "string"
+                },
+                "PassengerCapacity": {
+                    "type": "string"
+                },
+                "FuelTypeID": {
+                    "type": "number"
+                },
+                "FuelTypeName": {
+                    "type": "string"
+                },
+                "LicensePlate": {
+                    "type": "string"
+                },
+                "Weight": {
+                    "type": "string"
+                },
+                "Transponder": {
+                    "type": "string"
+                },
+                "DecalNumber": {
+                    "type": "string"
+                }
+            }
+        },
+        "ContractContact": {
+            "type":"object",
+            "description": "Model for Contract Contact Data",
+            "properties": {
+                "AccountId": {
+                    "type":"number"
+                },
+                "ContactId": {
+                    "type": "number"
+                },
+                "FirstName": {
+                    "type": "string"
+                },
+                "LastName": {
+                    "type": "string"
+                },
+                "Address1": {
+                    "type": "string"
+                },
+                "City": {
+                    "type": "string"
+                },
+                "State": {
+                    "type": "string"
+                },
+                "Zip": {
+                    "type": "string"
+                },
+                "Phone": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                }
+
+            }
+        },
+        "FinanceContact": {
+            "type":"object",
+            "description": "Model for Finance Contact Data",
+            "properties": {
+                "AccountId": {
+                    "type":"number"
+                },
+                "ContactId": {
+                    "type": "number"
+                },
+                "FirstName": {
+                    "type": "string"
+                },
+                "LastName": {
+                    "type": "string"
+                },
+                "Address1": {
+                    "type": "string"
+                },
+                "City": {
+                    "type": "string"
+                },
+                "State": {
+                    "type": "string"
+                },
+                "Zip": {
+                    "type": "string"
+                },
+                "Phone": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                }
+            }
+        },
+        "PermitContact": {
+            "type":"object",
+            "description": "Model for Permit Contact Data",
+            "properties": {
+                "AccountId": {
+                    "type":"number"
+                },
+                "ContactId": {
+                    "type": "number"
+                },
+                "FirstName": {
+                    "type": "string"
+                },
+                "LastName": {
+                    "type": "string"
+                },
+                "Address1": {
+                    "type": "string"
+                },
+                "City": {
+                    "type": "string"
+                },
+                "State": {
+                    "type": "string"
+                },
+                "Zip": {
+                    "type": "string"
+                },
+                "Phone": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                }
+            }
+        },
+        "TravisData": {
+                "type":"object",
+                "description": "Model for Travis Data",
+                "properties": {
+                    "AccountID": {
+                            "type":"number"
+                    },
+                    "OperatorTypeName": {
+                        "type": "string"
+                    },
+                    "OperatorTypeID": {
+                        "type": "number"
+                    },
+                    "ServiceTypeID": {
+                        "type": "number"
+                    },
+                    "OpAuthName": {
+                        "type": "string"
+                    },
+                    "OpAuthID": {
+                        "type": "number"
+                    },
+                    "LegalName": {
+                        "type": "string"
+                    },
+                    "OperatoringName": {
+                        "type": "string"
+                    },
+                    "Address1": {
+                        "type": "string"
+                    },
+                    "Address2": {
+                        "type": "string"
+                    },
+                    "City": {
+                        "type": "string"
+                    },
+                    "State": {
+                        "type": "string"
+                    },
+                    "Zip": {
+                        "type": "string"
+                    },
+                    "Phone1": {
+                        "type": "string"
+                    },
+                    "EmailAddress": {
+                        "type": "string"
+                    },
+                    "LAXAgreeEndDate": {
+                        "type": "string"
+                    },
+                    "OpAuthNumber": {
+                        "type": "string"
+                    },
+                    "LAXAgreeNumber": {
+                        "type": "string"
+                    },
+                    "SuspendedFlag": {
+                        "type": "number"
+                    },
+                    "ContractContact": {
+                        "type": "array",
+                        "items": {
+                            "$ref":"#/definitions/ContractContact"
+                        }
+                    },
+                    "FinanceContact": {
+                        "type": "array",
+                        "items":{
+                            "$ref": "#/definitions/FinanceContact"
+                        }
+                    },
+                    "PermitContact": {
+                        "type": "array",
+                        "items":{
+                            "$ref": "#/definitions/PermitContact"
+                        }
+                    },
+                    "Vehicles": {
+                        "type": "array",
+                        "items":{
+                            "$ref": "#/definitions/Vehicles"
+                        }
+                    }
+        }
+       
+    }
+    }
+}
