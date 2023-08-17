@@ -1,0 +1,302 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "NeuStar",
+        "description": "Asana API"
+    },
+    "host": "neustar-gateway.ctnr.dev.vonagenetworks.net",
+    "x-ntx-render-version": 2,
+    "basePath": "/nintex/v1/notifications",
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/x-www-form-urlencoded"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "security": [
+        {
+            "apiKeyAuth": []
+        }
+    ],
+    "paths":{
+        "/url": {
+            "patch":{
+                "summary": "Send Loa Url",
+                "x-ntx-summary": "Send Loa Url",
+                "description": "Sends Loa Url",
+                "operationId": "SendUrl",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                {
+                    "name": "loa_id",
+                    "x-ntx-summary": "LOA ID",
+                    "x-ntx-sublabel": "The Loa ID",
+                    "type": "string",
+                    "in": "body",
+                    "required": true
+                },
+                {
+                    "name": "loa_url",
+                    "x-ntx-summary": "Loa Url",
+                    "x-ntx-sublabel": "Url of the LOA",
+                    "type": "string",
+                    "in": "body",
+                    "required": true
+                }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                        "$type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/notifications":{
+            "post":{
+                "summary": "Send LOA details",
+                "x-ntx-summary": "Send LOA details",
+                "description": "Send completed Loa details",
+                "operationId": "SendLoaDetails",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                {
+                    "name": "address_line2",
+                    "in": "body",
+                    "required": true,
+                    "schema":{
+                        "$ref":"#/definitions/PostBody"
+                    }
+                },
+                {
+                    "name": "file",
+                    "in": "body",
+                    "type": "file",
+                    "required": true,
+                }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions":{
+        "PostBody":{
+            "type": "object",
+            "properties":{
+                "address_line2":{
+                    "x-ntx-summary": "address line 2",
+                    "type": "string"
+
+                },
+                "branding_id":{
+                    "x-ntx-summary": "Branding Id",
+                    "x-ntx-sublabel": "Vendor",
+                    "type": "string",
+                    "required": true
+                },
+                "btn": {
+                    "x-ntx-summary": "BTN",
+                    "x-ntx-sublabel": "Full 11 digit phone number",
+                    "type": "string",
+                    "required": true
+                },
+                "center_id": {
+                    "x-ntx-summary": "center_id",
+                    "x-ntx-sublabel": "Center id",
+                    "type": "string",
+                    "required": true
+                },
+                "city": {
+                    "x-ntx-summary": "City",
+                    "type": "string",
+                    "required": true
+                },
+                "clec": {
+                    "x-ntx-summary": "Clec",
+                    "type": "string",
+                },
+                "email_address": {
+                    "x-ntx-summary": "Email Address",
+                    "type": "string",
+                    "required": true
+                },
+                "first_name": {
+                    "x-ntx-summary": "First Name",
+                    "type": "string",
+                    "required": true
+                },
+                "iso_country": {
+                    "x-ntx-summary": "Country",
+                    "type": "string",
+                    "required": true
+                },
+                "language": {
+                    "x-ntx-summary": "Language",
+                    "type": "string",
+                    "required": true
+                },
+                "last_name": {
+                    "x-ntx-summary": "Last Name",
+                    "type": "string",
+                    "required": true
+                },
+                "loa_id": {
+                    "x-ntx-summary": "Loa Id",
+                    "type": "string",
+                    "required": true
+                },
+                "loa_received_date": {
+                    "x-ntx-summary": "Loa Received Date",
+                    "x-ntx-sublabel": "Date LOA submitted",
+                    "type": "string",
+                    "required": true
+                },
+                "loa_status": {
+                    "x-ntx-summary": "LOA Status",
+                    "type": "string",
+                    "x-ntx-anyOf": [
+                        {
+                          "const": "complete",
+                          "title": "complete"
+                        },
+                        {
+                          "const": "expired",
+                          "title": "expired"
+                        },
+                        {
+                          "const": "canceled",
+                          "title": "canceled"
+                        }
+                    ],
+                    "required": true
+                },
+                "loa_status_date": {
+                    "x-ntx-summary": "LOA Status Date",
+                    "x-ntx-sublabel": "Date status is set",
+                    "type": "string",
+                    "required": true
+                },
+                "mode": {
+                    "x-ntx-summary": "Mode",
+                    "type": "string",
+                    "required": true
+                },
+                "product_line": {
+                    "x-ntx-summary": "Product Line",
+                    "type": "string",
+                    "required": true
+                },
+                "state": {
+                    "x-ntx-summary": "State",
+                    "type": "string",
+                    "required": true
+                },
+                "street_direction": {
+                    "x-ntx-summary": "Street Direction",
+                    "type": "string",
+                    "required": true
+                },
+                "street_name": {
+                    "x-ntx-summary": "Street Name",
+                    "type": "string",
+                    "required": true
+                },
+                "street_number": {
+                    "x-ntx-summary": "street_number",
+                    "type": "string",
+                    "required": true
+                },
+                "street_prefix": {
+                    "x-ntx-summary": "Street Prefix",
+                    "type": "string",
+                    "required": true
+                },
+                "street_type": {
+                    "x-ntx-summary": "Street Type",
+                    "type": "string",
+                    "required": true
+                },
+                "vendor": {
+                    "x-ntx-summary": "Vendor",
+                    "type": "string",
+                    "required": true
+                },
+                "verify": {
+                    "type": "array",
+                    "items":{
+                        "$ref":"#/definitions/Verifys"
+                    }
+                },
+                "verify_type": {
+                    "x-ntx-summary": "Verify Type",
+                    "type": "string",
+                    "required": true
+                },
+                "version": {
+                    "x-ntx-summary": "Version",
+                    "type": "string",
+                    "required": true
+                },
+                "vonage_acct_number": {
+                    "x-ntx-summary": "Vonage Account Number",
+                    "type": "string",
+                    "required": true
+                },
+                "zip": {
+                    "x-ntx-summary": "Vendor",
+                    "type": "string",
+                    "required": true
+                },
+            }
+        },
+        "Verifys":{
+            "type": "object",
+            "properties":{
+                "ani":{
+                    "x-ntx-summary": "ANI",
+                    "type": "string",
+                    "required": true
+                },
+                "verify_item":{
+                    "x-ntx-summary": "Verify Item",
+                    "type": "string",
+                    "required": true,
+                    "x-ntx-anyOf": [
+                        {
+                            "const": "LSVC",
+                            "title": "LSVC"
+                        },
+                        {
+                            "const": "LTOLL",
+                            "title": "LTOLL"
+                        },
+                        {
+                            "const": "LDIS",
+                            "title": "LDIS"
+                        },
+                        {
+                            "const": "INTLTOLL",
+                            "title": "INTLTOLL"
+                        }
+                    ],
+                }
+        }
+    }
+}
