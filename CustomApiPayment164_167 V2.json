@@ -23,7 +23,7 @@
         "application/json"
     ],
     "paths": {
-        "/services/data/v41.0/query?q=SELECT+UserName+FROM+User":{
+        "/v41.0/query?q=SELECT+UserName+FROM+User":{
             "get": {
                 "summary": "Get all users",
                 "operationId": "getUsers",
@@ -62,7 +62,7 @@
             "NintextOauth2": []
         }
     ],
-    "basePath": "/services/apexrest",
+    "basePath": "/services/data",
     "tags": [
         {
             "name": "Nintex"
