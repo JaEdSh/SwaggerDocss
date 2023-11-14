@@ -23,7 +23,7 @@
         "application/json"
     ],
     "paths": {
-        "/v41.0/query?q=SELECT+UserName+FROM+User":{
+        "/query?q=SELECT+UserName+FROM+User":{
             "get": {
                 "summary": "Get all users",
                 "operationId": "getUsers",
@@ -47,7 +47,7 @@
         }
     },
     "definitions": {},
-    "basePath": "/services/data",
+    "basePath": "/services/data/v59.0",
     "tags": [
         {
             "name": "Nintex"
