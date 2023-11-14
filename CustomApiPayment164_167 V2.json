@@ -23,7 +23,7 @@
         "application/json"
     ],
     "paths": {
-        "/data":{
+        "/chatter/users/me ":{
             "get": {
                 "summary": "Get all users",
                 "operationId": "getUsers",
@@ -62,7 +62,7 @@
             "NintextOauth2": []
         }
     ],
-    "basePath": "/services",
+    "basePath": "/services/data/v59.0",
     "tags": [
         {
             "name": "Nintex"
