@@ -47,21 +47,6 @@
         }
     },
     "definitions": {},
-    "securityDefinitions": {
-        "NintextOauth2": {
-            "type": "oauth2",
-            "flow": "implicit",
-            "scopes": {
-                "user": "user allowed to update setting"
-            },
-            "authorizationUrl": "https://login.salesforce.com/services/oauth2/authorize"
-        }
-    },
-    "security": [
-        {
-            "NintextOauth2": []
-        }
-    ],
     "basePath": "/services/data",
     "tags": [
         {
