@@ -1,0 +1,71 @@
+{
+    "swagger": "2.0",
+    "x-stoplight": {
+        "id": "806sij2w0brax"
+    },
+    "info": {
+        "title": "custom",
+        "version": "1.0",
+        "contact": {
+            "name": "Rohit Pant",
+            "email": "rpant@avidxchange.com"
+        },
+        "description": "this custom api allows the update of ceratin fields for payments"
+    },
+    "host": "avidxchange-org2--org2ut.sandbox.my.salesforce.com",
+    "schemes": [
+        "https"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "paths": {
+        "/services/data/v41.0/query?q=SELECT+UserName+FROM+User":{
+            "get": {
+                "summary": "Get all users",
+                "operationId": "getUsers",
+                "parameters":[],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string",
+                            "x-examples": {
+                                "example-1": [
+                                    {
+                                        "status": "success"
+                                    }
+                                ]
+                            }                            
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {},
+    "securityDefinitions": {
+        "NintextOauth2": {
+            "type": "oauth2",
+            "flow": "implicit",
+            "scopes": {
+                "user": "user allowed to update setting"
+            },
+            "authorizationUrl": "https://login.salesforce.com/services/oauth2/authorize"
+        }
+    },
+    "security": [
+        {
+            "NintextOauth2": []
+        }
+    ],
+    "basePath": "/services/apexrest",
+    "tags": [
+        {
+            "name": "Nintex"
+        }
+    ]
+}
