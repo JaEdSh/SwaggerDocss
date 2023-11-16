@@ -109,7 +109,7 @@
             "NintextOauth2": []
         }
     ],
-    "basePath": "/services/data/v59.0",
+    "basePath": "/services/apexrest",
     "tags": [
         {
             "name": "Nintex"
