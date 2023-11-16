@@ -39,17 +39,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "type": "object",
-                            "x-examples": {
-                                "example-1": [
-                                    {
-                                        "status": "success"
-                                    }
-                                ]
-                            },
-                            "items": { "$ref": "#/definitions/rootObject" }
-                        }
+                        "schema": { "$ref": "#/definitions/rootObject" }
                     }
                 },
                 "tags": [
