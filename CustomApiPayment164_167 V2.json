@@ -48,7 +48,6 @@
                         "description": "OK",
                         "schema": { "$ref": "#/definitions/rootObject" }
                         }
-                    }
                 },
                 "tags": [
                     "Nintex"
