@@ -38,7 +38,7 @@
                         "schema": { 
                             "type": "object",
                             "properties": {
-                                "schema": { "$ref": "#/definitions/postDefinition" }
+                                "schema": { "$ref": "#/definitions/baseDefinition" }
                             }
                         }
                     }
@@ -49,7 +49,7 @@
                         "schema": { 
                             "type": "object",
                             "properties": { 
-                                "schema": {"$ref": "#/definitions/returnItems" }
+                                "schema": {"$ref": "#/definitions/rootObject" }
                              }
                         }
                     }
@@ -61,39 +61,43 @@
         }
     },
     "definitions": {
-        "postDefinition":{
+        "baseDefinition":{
             "type": "array",
-            "items": {
-                "properties": {
-                    "Id": {
-                        "type": "string"
-                    },
-                    "Payment_Status__c": {
-                        "type": "string"
-                    },
-                    "Payment_ONST_Check__c": {
-                        "type": "string"
-                    },
-                    "Payment_ONST_Approved_Date__c": {
-                        "type": "string",
-                        "format": "date"
-                    }
+            "items": { "$ref": "#/definitions/baseDefinition" }
+        },
+        "postDefinition":{
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "string"
+                },
+                "Payment_Status__c": {
+                    "type": "string"
+                },
+                "Payment_ONST_Check__c": {
+                    "type": "string"
+                },
+                "Payment_ONST_Approved_Date__c": {
+                    "type": "string",
+                    "format": "date"
                 }
             }
         },
-        "returnItems": {
+        "rootObject": {
             "type": "array",
-            "items": {
-                "properties": {
-                    "status": {
-                        "type": "string"
-                    },
-                    "message": {
-                        "type": "string"
-                    },
-                    "errorMessages": {
-                        "type": "string"
-                    }
+            "items": { "$ref": "#/definitions/returnItems" }
+        },
+        "returnItems": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "errorMessages": {
+                    "type": "string"
                 }
             }
         }
