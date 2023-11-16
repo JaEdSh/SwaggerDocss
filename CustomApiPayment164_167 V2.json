@@ -23,26 +23,73 @@
         "application/json"
     ],
     "paths": {
-        "/chatter/users/me ":{
-            "get": {
-                "summary": "Get all users",
-                "operationId": "getUsers",
-                "parameters":[],
+        "/NintexSFPayment": {
+            "post": {
+                "summary": "",
+                "operationId": "post-NintexSFPayment",
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "string",
+                            "type": "array",
                             "x-examples": {
                                 "example-1": [
                                     {
                                         "status": "success"
                                     }
                                 ]
-                            }                            
+                            },
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "status": {
+                                        "type": "string"
+                                    },
+                                    "message": {
+                                        "type": "string"
+                                    },
+                                    "errorMessages": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
-                }
+                },
+                "description": "POST to NintextSFPayment",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Id": {
+                                        "type": "string"
+                                    },
+                                    "Payment_Status__c": {
+                                        "type": "string"
+                                    },
+                                    "Payment_ONST_Check__c": {
+                                        "type": "string"
+                                    },
+                                    "Payment_ONST_Approved_Date__c": {
+                                        "type": "string",
+                                        "format": "date"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "tags": [
+                    "Nintex"
+                ]
             }
         }
     },
