@@ -27,11 +27,20 @@
             "post": {
                 "summary": "",
                 "operationId": "post-NintexSFPayment",
+                
+                "description": "POST to NintextSFPayment",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "root",
+                        "schema": { "$ref": "#/definitions/rootPostDefinition" }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "array",
+                            "type": "object",
                             "x-examples": {
                                 "example-1": [
                                     {
@@ -39,21 +48,10 @@
                                     }
                                 ]
                             },
-                            "items": { "$ref": "#/definitions/returnItems" }
+                            "items": { "$ref": "#/definitions/rootObject" }
                         }
                     }
                 },
-                "description": "POST to NintextSFPayment",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "schema": {
-                            "type": "array",
-                            "items": { "$ref": "#/definitions/postDefinition" }
-                        }
-                    }
-                ],
                 "tags": [
                     "Nintex"
                 ]
@@ -61,6 +59,10 @@
         }
     },
     "definitions": {
+        "rootPostDefinition": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/postDefinition" }
+        },
         "postDefinition":{
             "type": "object",
             "properties": {
@@ -78,6 +80,10 @@
                     "format": "date"
                 }
             }
+        },
+        "rootObject":{
+            "type": "array",
+            "items": { "$ref": "#/definitions/returnItems" }
         },
         "returnItems": {
             "type": "object",
