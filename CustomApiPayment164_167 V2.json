@@ -34,10 +34,12 @@
                 "parameters": [
                     {
                         "in": "body",
-                        "name": "root",
+                        "name": "body",
                         "schema": { 
-                            "type": "array",
-                            "items": [{ "$ref": "#/definitions/postDefinition" }]
+                            "type": "object",
+                            "properties": {
+                                "schema": { "$ref": "#/definitions/postDefinition" }
+                            }
                         }
                     }
                 ],
@@ -45,8 +47,10 @@
                     "200": {
                         "description": "OK",
                         "schema": { 
-                            "type": "array",
-                            "items": [{ "$ref": "#/definitions/returnItems" }]
+                            "type": "object",
+                            "properties": { 
+                                "schema": {"$ref": "#/definitions/returnItems" }
+                             }
                         }
                     }
                 },
@@ -58,37 +62,38 @@
     },
     "definitions": {
         "postDefinition":{
-            "type": "object",
-            "properties": {
-                "Id": {
-                    "type": "string"
-                },
-                "Payment_Status__c": {
-                    "type": "string"
-                },
-                "Payment_ONST_Check__c": {
-                    "type": "string"
-                },
-                "Payment_ONST_Approved_Date__c": {
-                    "type": "string",
-                    "format": "date"
+            "type": "array",
+            "items": {
+                "properties": {
+                    "Id": {
+                        "type": "string"
+                    },
+                    "Payment_Status__c": {
+                        "type": "string"
+                    },
+                    "Payment_ONST_Check__c": {
+                        "type": "string"
+                    },
+                    "Payment_ONST_Approved_Date__c": {
+                        "type": "string",
+                        "format": "date"
+                    }
                 }
             }
         },
         "returnItems": {
-            "type": "object",
-            "properties": {
-                "status": {
-                    "type": "string"
-                },
-                "message": {
-                    "type": "string"
-                },
-                "errorMessages": {
-                    "type": "array",
-                    "items": [{
+            "type": "array",
+            "items": {
+                "properties": {
+                    "status": {
                         "type": "string"
-                    }]
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "errorMessages": {
+                        "type": "string"
+                    }
                 }
             }
         }
