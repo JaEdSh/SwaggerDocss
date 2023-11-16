@@ -49,8 +49,13 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": { "$ref": "#/definitions/rootObject" }
+                        "schema": { 
+                            "type": "object",
+                            "properties": {
+                                "schema": { "$ref": "#/definitions/rootObject" }
+                            }
                         }
+                    }
                 },
                 "tags": [
                     "Nintex"
