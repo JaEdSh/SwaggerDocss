@@ -39,10 +39,8 @@
                         "in": "body",
                         "name": "body",
                         "schema": { 
-                            "type": "object",
-                            "properties": {
-                                "schema": { "$ref": "#/definitions/baseDefinition" }
-                            }
+                            "type": "string"
+                            
                         }
                     }
                 ],
@@ -50,10 +48,8 @@
                     "200": {
                         "description": "OK",
                         "schema": { 
-                            "type": "object",
-                            "properties": {
-                                "schema": { "$ref": "#/definitions/rootObject" }
-                            }
+                            "type": "string"
+                            
                         }
                     }
                 },
