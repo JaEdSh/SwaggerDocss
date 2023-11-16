@@ -29,6 +29,9 @@
                 "consumes": [
                     "application/json"
                 ],
+                "produces": [
+                    "application/json"
+                ],
                 "operationId": "post-NintexSFPayment",
                 "description": "POST to NintextSFPayment",
                 "parameters": [
