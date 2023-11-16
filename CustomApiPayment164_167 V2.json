@@ -46,11 +46,7 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": { 
-                            "type": "object",
-                            "properties": { 
-                                "schema": {"$ref": "#/definitions/rootObject" }
-                             }
+                        "schema": { "$ref": "#/definitions/rootObject" }
                         }
                     }
                 },
