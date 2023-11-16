@@ -33,13 +33,19 @@
                     {
                         "in": "body",
                         "name": "root",
-                        "schema": { "$ref": "#/definitions/rootPostDefinition" }
+                        "schema": { 
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/postDefinition" }
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": { "$ref": "#/definitions/rootObject" }
+                        "schema": { 
+                            "type": "array",
+                            "items": { "$ref": "#/definitions/returnItems" }
+                        }
                     }
                 },
                 "tags": [
@@ -49,10 +55,6 @@
         }
     },
     "definitions": {
-        "rootPostDefinition": {
-            "type": "array",
-            "items": { "$ref": "#/definitions/postDefinition" }
-        },
         "postDefinition":{
             "type": "object",
             "properties": {
@@ -70,10 +72,6 @@
                     "format": "date"
                 }
             }
-        },
-        "rootObject":{
-            "type": "array",
-            "items": { "$ref": "#/definitions/returnItems" }
         },
         "returnItems": {
             "type": "object",
