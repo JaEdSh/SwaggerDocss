@@ -39,23 +39,7 @@
                                     }
                                 ]
                             },
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "status": {
-                                        "type": "string"
-                                    },
-                                    "message": {
-                                        "type": "string"
-                                    },
-                                    "errorMessages": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
+                            "items": { "$ref": "#/definitions/returnItems" }
                         }
                     }
                 },
@@ -92,6 +76,23 @@
                 "Payment_ONST_Approved_Date__c": {
                     "type": "string",
                     "format": "date"
+                }
+            }
+        },
+        "returnItems": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "errorMessages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         }
