@@ -38,19 +38,13 @@
                     {
                         "in": "body",
                         "name": "body",
-                        "schema": { 
-                            "type": "string"
-                            
-                        }
+                        "schema": { "$ref": "#/definitions/baseDefinition" }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": { 
-                            "type": "string"
-                            
-                        }
+                        "schema": { "$ref": "#/definitions/rootObject" }
                     }
                 },
                 "tags": [
@@ -62,7 +56,7 @@
     "definitions": {
         "baseDefinition":{
             "type": "array",
-            "items": { "$ref": "#/definitions/baseDefinition" }
+            "items": { "$ref": "#/definitions/postDefinition" }
         },
         "postDefinition":{
             "type": "object",
