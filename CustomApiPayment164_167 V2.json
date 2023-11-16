@@ -26,13 +26,19 @@
         "/NintexSFPayment": {
             "post": {
                 "summary": "",
+                "consumes": [
+                    "application/json"
+                ],
                 "operationId": "post-NintexSFPayment",
                 "description": "POST to NintextSFPayment",
                 "parameters": [
                     {
                         "in": "body",
                         "name": "root",
-                        "schema": { "$ref": "#/definitions/rootPost" }
+                        "schema": { 
+                            "type": "array",
+                            "items": { "$ref": "#/definitions/postDefinition" }
+                        }
                     }
                 ],
                 "responses": {
