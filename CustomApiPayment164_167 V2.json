@@ -37,7 +37,7 @@
                         "name": "root",
                         "schema": { 
                             "type": "array",
-                            "items": { "$ref": "#/definitions/postDefinition" }
+                            "items": [{ "$ref": "#/definitions/postDefinition" }]
                         }
                     }
                 ],
@@ -46,7 +46,7 @@
                         "description": "OK",
                         "schema": { 
                             "type": "array",
-                            "items": { "$ref": "#/definitions/returnItems" }
+                            "items": [{ "$ref": "#/definitions/returnItems" }]
                         }
                     }
                 },
@@ -57,15 +57,6 @@
         }
     },
     "definitions": {
-        "rootPost":{
-            "type": "object",
-            "properties": {
-                "array": {
-                    "type":"array",
-                    "items": { "$ref": "#/definitions/postDefinition" }
-                }
-            }
-        },
         "postDefinition":{
             "type": "object",
             "properties": {
@@ -95,9 +86,9 @@
                 },
                 "errorMessages": {
                     "type": "array",
-                    "items": {
+                    "items": [{
                         "type": "string"
-                    }
+                    }]
                 }
             }
         }
