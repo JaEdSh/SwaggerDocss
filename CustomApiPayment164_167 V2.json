@@ -27,16 +27,12 @@
             "post": {
                 "summary": "",
                 "operationId": "post-NintexSFPayment",
-                
                 "description": "POST to NintextSFPayment",
                 "parameters": [
                     {
                         "in": "body",
                         "name": "root",
-                        "schema": { 
-                            "type": "array",
-                            "items": {"$ref": "#/definitions/postDefinition" }
-                        }
+                        "schema": { "$ref": "#/definitions/rootPost" }
                     }
                 ],
                 "responses": {
@@ -55,6 +51,15 @@
         }
     },
     "definitions": {
+        "rootPost":{
+            "type": "object",
+            "properties": {
+                "array": {
+                    "type":"array",
+                    "items": { "$ref": "#/definitions/postDefinition" }
+                }
+            }
+        },
         "postDefinition":{
             "type": "object",
             "properties": {
