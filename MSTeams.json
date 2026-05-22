@@ -1,0 +1,155 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Microsoft Teams Channel Messaging API",
+    "description": "Swagger 2.0 definition for posting messages to a Microsoft Teams channel using Microsoft Graph.",
+    "version": "1.0.0"
+  },
+  "host": "graph.microsoft.com",
+  "basePath": "/v1.0",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "azureAD": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/authorize",
+      "tokenUrl": "https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/token",
+      "scopes": {
+        "ChannelMessage.Send": "Send channel messages",
+        "Group.ReadWrite.All": "Read and write all groups"
+      }
+    }
+  },
+  "security": [
+    {
+      "azureAD": [
+        "ChannelMessage.Send"
+      ]
+    }
+  ],
+  "paths": {
+    "/teams/{team-id}/channels/{channel-id}/messages": {
+      "post": {
+        "summary": "Post message to Teams channel",
+        "description": "Send a new message to a Microsoft Teams channel.",
+        "operationId": "postChannelMessage",
+        "tags": [
+          "Teams"
+        ],
+        "parameters": [
+          {
+            "name": "team-id",
+            "in": "path",
+            "description": "The ID of the Microsoft Team.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "channel-id",
+            "in": "path",
+            "description": "The ID of the Microsoft Teams channel.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ChatMessage"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Message created successfully",
+            "schema": {
+              "$ref": "#/definitions/ChatMessageResponse"
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ChatMessage": {
+      "type": "object",
+      "required": [
+        "body"
+      ],
+      "properties": {
+        "body": {
+          "$ref": "#/definitions/ItemBody"
+        }
+      }
+    },
+    "ItemBody": {
+      "type": "object",
+      "required": [
+        "contentType",
+        "content"
+      ],
+      "properties": {
+        "contentType": {
+          "type": "string",
+          "enum": [
+            "text",
+            "html"
+          ],
+          "example": "html"
+        },
+        "content": {
+          "type": "string",
+          "example": "<p>Hello Team!</p>"
+        }
+      }
+    },
+    "ChatMessageResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "1616964509832"
+        },
+        "replyToId": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "messageType": {
+          "type": "string",
+          "example": "message"
+        },
+        "createdDateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastModifiedDateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "body": {
+          "$ref": "#/definitions/ItemBody"
+        }
+      }
+    }
+  }
+}
