@@ -20,8 +20,8 @@
     "azureAD": {
       "type": "oauth2",
       "flow": "accessCode",
-      "authorizationUrl": "https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/authorize",
-      "tokenUrl": "https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/token",
+      "authorizationUrl": "https://login.microsoftonline.com/5a2beb23-b1a5-4fc5-90b2-2520f82f9a3b/oauth2/v2.0/authorize",
+      "tokenUrl": "https://login.microsoftonline.com/5a2beb23-b1a5-4fc5-90b2-2520f82f9a3b/oauth2/v2.0/token",
       "scopes": {
         "ChannelMessage.Send": "Send channel messages",
         "Group.ReadWrite.All": "Read and write all groups"
