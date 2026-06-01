@@ -27,13 +27,13 @@
         "Group.ReadWrite.All": "Read and write all groups"
       }
     },
-    "basicAuth":{
-        "type": "basic"
-     }
+    "basicAuth":{ }
   },
   "security": [
     {
-      "basicAuth": []
+      "azureAD": [
+        "ChannelMessage.Send"
+      ]
     }
   ],
   "paths": {
