@@ -17,6 +17,29 @@
     "application/json"
   ],
   "paths": {
+    "/teams/{teamId}/channels": {
+        "get": {
+            "summary": "List Channels",
+            "description": "List all channels in a Team.",
+            "operationId": "ListChannels",
+            "tags": ["Channels"],
+            "parameters": [
+            {
+                "name": "teamId",
+                "in": "path",
+                "required": true,
+                "type": "string",
+                "description": "The ID of the Team"
+            }
+            ],
+            "responses": {
+            "200": {
+                "description": "Success",
+                "schema": { "$ref": "#/definitions/ChannelList" }
+            }
+            }
+        }
+    },
     "/teams/{team-id}/channels/{channel-id}/messages": {
       "post": {
         "summary": "Post message to Teams channel",
@@ -70,6 +93,27 @@
     }
   },
   "definitions": {
+    "ChannelList": {
+      "type": "object",
+      "properties": {
+        "value": { "type": "array", "items": { "$ref": "#/definitions/Channel" } }
+      }
+    },
+    "Channel": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "displayName": { "type": "string" },
+        "description": { "type": "string" },
+        "email": { "type": "string" },
+        "webUrl": { "type": "string" },
+        "membershipType": { "type": "string", "description": "standard, private, or shared" },
+        "isArchived": { "type": "boolean" },
+        "isFavoriteByDefault": { "type": "boolean" },
+        "tenantId": { "type": "string" },
+        "createdDateTime": { "type": "string" }
+      }
+    },
     "ChatMessage": {
       "type": "object",
       "required": [
